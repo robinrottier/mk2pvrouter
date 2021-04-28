@@ -1,0 +1,40 @@
+
+
+Example of previous sketch rf output to emonpi:
+
+2021-04-28 09:48:33,873 DEBUG    RFM2Pi     35226 NEW FRAME : OK 28 72 0 3 0 209 102 0 0 (-55)
+2021-04-28 09:48:33,877 DEBUG    RFM2Pi     35226 Timestamp : 1619599713.873072
+2021-04-28 09:48:33,878 DEBUG    RFM2Pi     35226 From Node : 28
+2021-04-28 09:48:33,878 DEBUG    RFM2Pi     35226    Values : [72, 3, 263.21, 0]
+2021-04-28 09:48:33,879 DEBUG    RFM2Pi     35226      RSSI : -55
+2021-04-28 09:48:33,879 DEBUG    RFM2Pi     35226 Sent to channel(start)' : ToEmonCMS
+2021-04-28 09:48:33,880 DEBUG    RFM2Pi     35226 Sent to channel(end)' : ToEmonCMS
+(collected from emonhub log)
+
+Emonhub config for mk2vrouter:
+[[28]]
+    nodename = mk2pvrouter
+    [[[rx]]]
+       names = gridPower,divertedEnergy,V,T
+       scales = 1,1,0.01,0.01
+       units = W,Wh,V,C
+
+
+TO debug remotely...
+- start pio agent on emonpi (which has usb to arduino breakout board connected)
+
+ssh emonpi
+pio remote agent start
+2021-04-28 10:01:01 [info] Name: emonpi
+2021-04-28 10:01:01 [info] Connecting to PlatformIO Remote Development Cloud
+2021-04-28 10:01:01 [info] Successfully connected
+2021-04-28 10:01:01 [info] Authenticating
+2021-04-28 10:01:03 [info] Successfully authorized
+
+(platformio was previously installed and somehow authenticated!)
+
+Then "remote upload" in vscode -- it just found it (again: not sure how...think going via pio
+cloud so not expecting great performance!)
+
+
+
