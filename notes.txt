@@ -19,6 +19,16 @@ Emonhub config for mk2vrouter:
        scales = 1,1,0.01,0.01
        units = W,Wh,V,C
 
+BUT defaul tin this sketchs is 10 ==> change emonhub config, comment emontx section previosuly using 10
+Config for this config is:
+[[10]]
+    nodename = mk2pvrouter
+    [[[rx]]]
+       names = gridPower,divertedEnergy,divertedPower,V
+       scales = 1,1,1,0.01
+       units = W,Wh,W,V
+
+
 
 TO debug remotely...
 - start pio agent on emonpi (which has usb to arduino breakout board connected)
@@ -36,5 +46,7 @@ pio remote agent start
 Then "remote upload" in vscode -- it just found it (again: not sure how...think going via pio
 cloud so not expecting great performance!)
 
+
+BUT may have overwrittern emonpi RF firware on ttyAMA0 --> reinstall firmware from admin page
 
 
