@@ -322,6 +322,17 @@ byte charsForDisplay[noOfDigitLocations] = {20,20,20,20}; // all blank
 boolean EDD_isActive = false; // energy divertion detection
 long requiredExportPerMainsCycle_inIEU;
 
+void timerIsr(void);
+int freeRam();
+void allGeneralProcessing();
+void confirmPolarity();
+void send_rf_data();
+void configureValueForDisplay();
+byte nextLogicalLoadToBeAdded();
+byte nextLogicalLoadToBeRemoved();
+void updatePhysicalLoadStates();
+void refreshDisplay();
+
 void setup()
 {  
 //  pinMode(outOfRangeIndication, OUTPUT);  
