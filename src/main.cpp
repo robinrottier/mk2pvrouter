@@ -1,5 +1,5 @@
 /*
- * https://mk2pvrouter.co.uk/downloads/Mk2_fasterControl_withRF_2.ino
+ * Based on: https://mk2pvrouter.co.uk/downloads/Mk2_fasterControl_withRF_2.ino
  *
  * Mk2_fasterControl_withRF_2.ino
  *
