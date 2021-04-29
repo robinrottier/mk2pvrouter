@@ -313,8 +313,8 @@ unsigned long timeAtLastDelay;
 // for 3.3V operation, the optimum value is generally around 0.044
 // for 5V operation, the optimum value is generally around 0.072
 //
-const float powerCal_grid = 0.07;
-const float powerCal_diverted = 0.07;
+const float powerCal_grid = 0.071;
+const float powerCal_diverted = 0.071;
 
 // phaseCal is used to alter the phase of the voltage waveform relative to the
 // current waveform.  This mechanism can be used to offset any difference in
