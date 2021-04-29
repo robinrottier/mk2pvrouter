@@ -140,8 +140,8 @@ enum outputModes
 }; // retained for compatibility with previous versions.
 
 // ----  Output mode selection -----
-enum outputModes outputMode = ANTI_FLICKER; // <- needs to be set here unless an
-//enum outputModes outputMode = NORMAL;     //    external switch is in use
+//enum outputModes outputMode = ANTI_FLICKER; // <- needs to be set here unless an
+enum outputModes outputMode = NORMAL;     //    external switch is in use
 
 /* --------------------------------------
  * RF configuration (for the RFM12B module)
