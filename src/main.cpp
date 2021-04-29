@@ -1,4 +1,5 @@
-/* Mk2_RFdatalog_6.ino
+/* 
+ * Based on Mk2_RFdatalog_6.ino
  *
  * This sketch is for diverting suplus PV power to a dump load using a triac 
  * or Solid State Relay.  Routine datalogging is also supported using the 
@@ -1225,6 +1226,23 @@ int readTemperature()
 }
 
 #ifdef RF_PRESENT
+
+void  check_receiving_rf_data()
+{
+  if (rf12_recvDone() && rf12_crc == 0 && (rf12_hdr & RF12_HDR_CTL) == 0)
+  {
+   char *payload = (char *)rf12_data; // access rf12 data buffer as an arrya of ints
+   int payloadCount = rf12_len;
+  Serial.print("Received rf dataL ");
+   for( int i= 0; i < payloadCount; i++)
+    {
+    Serial.print(payload[i]);
+    //Serial.print(" ");
+    }
+  Serial.println();
+  }
+}
+
 void send_rf_data()
 //
 // To avoid disturbance to the sampling process, the RFM12B needs to remain in its
@@ -1234,7 +1252,7 @@ void send_rf_data()
   int i = 0;
   while (!rf12_canSend() && i < 10)
   {
-    rf12_recvDone();
+    check_receiving_rf_data();
     i++;
   }
   rf12_sendNow(0, &tx_data, sizeof tx_data);
